@@ -1,0 +1,64 @@
+.pagination {
+
+  &__button {
+    width: 1056px;
+    display: flex;
+    margin: 59px 0;
+
+
+    button {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-size: 18px;
+      text-transform: uppercase;
+    }
+
+    &__previous {
+      padding-left: 28px;
+      margin-right: 83px;
+
+
+      &:before {
+        content: url("../../resourses/img/previous.svg");
+        margin-right: 14px;
+        height: 18px;
+      }
+    }
+
+    &__next {
+
+      &:after {
+        content: url("../../resourses/img/next.svg");
+        margin-left: 14px;
+        height: 18px;
+      }
+    }
+  }
+}
+
+button:disabled {
+  color: #000;
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .pagination__button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+
+    button {
+      font-size: 14px;
+    }
+
+    &__previous {
+      padding-left: 0;
+      margin-right: 0;
+
+    }
+  }
+}

@@ -1,0 +1,51 @@
+.pagination__button {
+  width: 1056px;
+  display: flex;
+  margin: 59px 0;
+}
+.pagination__button button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.pagination__button__previous {
+  padding-left: 28px;
+  margin-right: 83px;
+}
+.pagination__button__previous:before {
+  content: url("../../resourses/img/previous.svg");
+  margin-right: 14px;
+  height: 18px;
+}
+.pagination__button__next:after {
+  content: url("../../resourses/img/next.svg");
+  margin-left: 14px;
+  height: 18px;
+}
+
+button:disabled {
+  color: #000;
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .pagination__button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  .pagination__button button {
+    font-size: 14px;
+  }
+  .pagination__button__previous {
+    padding-left: 0;
+    margin-right: 0;
+  }
+}
+
+/*# sourceMappingURL=Pagination.css.map */

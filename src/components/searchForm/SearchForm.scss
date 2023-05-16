@@ -1,0 +1,103 @@
+.search-form {
+  margin-top: 34px;
+
+  form {
+    display: flex;
+    align-items: center;
+  }
+
+  input, select {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    width: 208px;
+    height: 29px;
+    margin: 0 11px;
+    box-sizing: border-box;
+    border: 1px solid #000;
+
+  }
+  &__input {
+    padding: 7px 8px;
+  }
+  select {
+    padding: 0 8px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('../../resourses/img/arrow.svg');
+    background-repeat: no-repeat, repeat;
+    background-position: right 12px top 50%, 0 0;
+    background-size: 10px;
+
+    &::-ms-expand {
+      display: none;
+    }
+
+    option {
+      border-radius: 0;
+    }
+  }
+
+  input::-webkit-input-placeholder {
+    color: #000;
+  }
+  &__button {
+    background-color: #48DEFF;
+    border: none;
+    width: 82px;
+    height: 29px;
+    margin: 0 11px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1060px) {
+  .search-form {
+    width: 100%;
+
+    input, select {
+      width: 20%;
+    }
+  }
+
+}
+
+@media (max-width: 768px) {
+  .search-form {
+    width: 100%;
+    background-color: #D9D9D9;
+    height: 100vh;
+    position: fixed;
+    z-index: 2;
+    margin: 0;
+    padding-top: 60px;
+
+
+    &__small {
+      display: none;
+      &.open {
+        display: block;
+      }
+    }
+
+
+
+    form {
+      flex-wrap: wrap;
+
+      input, select, button {
+        width: 100%;
+        margin: 20px;
+      }
+    }
+  }
+  .burger-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 3;
+
+    img {
+      width: 21px;
+      height: 14px;
+    }
+  }
+}
