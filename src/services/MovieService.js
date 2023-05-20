@@ -6,19 +6,16 @@ export const MovieService = () => {
     const getResourse = async (url) => {
         const res = await fetch(url);
 
-        // if (!res.ok) {
-        //     throw new Error(`Could not fetch ${url}, status ${res.status}`);
-        // }
 
         return await res.json();
     }
 
-    const getTopRatedMovies = async (page = 1) => {
-        const res = await getResourse(`https://api.themoviedb.org/3/movie/top_rated?${_apiKey}&language=ru-RU&page=${page}`)
-        const movie = res.results.map(transformMovie);
+    const getTopRatedMovies = async (page = 1, call = 'top_rated') => {
+        const res = await getResourse(`https://api.themoviedb.org/3/movie/${call}?${_apiKey}&language=ru-RU&page=${page}`)
+        const movies = res.results.map(transformMovie);
         const results = res.total_results;
 
-        return {movie, results}
+        return {movies, results}
     }
 
     const getSearchMovies = async (str, page = 1) => {

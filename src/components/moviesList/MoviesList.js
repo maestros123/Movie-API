@@ -27,8 +27,8 @@ export const MoviesList = ({ movieData, setMovieData }) => {
     }, [isModalOpen]);
 
     const onMoviesLoaded = (newMoviesList) => {
-        const { movie, results } = newMoviesList;
-        setMovieData(prevData => ({...prevData, resultCount: results, movies: movie, displayedMovies: movie.slice(0, count)}))
+        const { movies, results } = newMoviesList;
+        setMovieData(prevData => ({...prevData, resultCount: results, movies: movies, displayedMovies: movies.slice(0, count)}))
         setMovieData(prevData => ({...prevData, loading: false}))
     };
 

@@ -33,24 +33,28 @@ export const Pagination = ( { movieData, setMovieData, formData, isSmallScreen }
             if (movieData.call === 'find') {
                 movieService.getSearchMovies(formData.title, movieData.apiPage)
                     .then((newMoviesList) => {
-                        const { movies } = newMoviesList;
-                        const combinedMovies = movieData.movies.concat(movies);
-                        const nextMovies = combinedMovies.slice(startIndex, endIndex);
-                        setMovieData(prevData => ({...prevData, movies: combinedMovies, displayedMovies: nextMovies, sitePage: movieData.sitePage + 1, apiPage: movieData.apiPage + 1, loading: false}))
+                        addList(startIndex, endIndex, newMoviesList)
                     });
             } else {
-                movieService.getTopRatedMovies(movieData.apiPage)
+                movieService.getTopRatedMovies(movieData.apiPage, movieData.call)
                     .then((newMoviesList) => {
-                        const { movie } = newMoviesList;
-                        const combinedMovies = movieData.movies.concat(movie);
-                        const nextMovies = combinedMovies.slice(startIndex, endIndex);
-                        setMovieData(prevData => ({...prevData, movies: combinedMovies, displayedMovies: nextMovies, sitePage: movieData.sitePage + 1, apiPage: movieData.apiPage + 1, loading: false}))
+                        addList(startIndex, endIndex, newMoviesList)
                     });
             }
         }
 
         setMovieData(prevData => ({...prevData, resultCount: movieData.resultCount - count }))
     };
+
+    const addList = (start, end, list) => {
+        const { movies } = list;
+        const combinedMovies = movieData.movies.concat(movies);
+        const nextMovies = combinedMovies.slice(start, end);
+        setMovieData(prevData => ({...prevData, movies: combinedMovies, displayedMovies: nextMovies, sitePage: movieData.sitePage + 1, apiPage: movieData.apiPage + 1, loading: false}))
+
+    }
+
+
     const btnPrev = movieData.sitePage === 1 ? <button className="pagination__button__previous" disabled={true} onClick={onPreviousPage}>Предыдущая</button> : <button className="pagination__button__previous" onClick={onPreviousPage}>Предыдущая</button>
     const btnNext = movieData.resultCount - count < 0 ? <button className="pagination__button__next" disabled={true} onClick={onNextPage}>Cледующая</button> : <button className="pagination__button__next" onClick={onNextPage}>Cледующая</button>
 

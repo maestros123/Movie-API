@@ -10,18 +10,13 @@ function App() {
         displayedMovies: [],
         sitePage: 1,
         apiPage: 2,
-        call: 'topRated',
+        call: 'top_rated',
         resultCount: 0,
         loading: true,
         notFound: false
     });
 
-    const [formData, setFormData] = useState({
-        title: "",
-        genre: "",
-        rating: "",
-        year: ""
-    });
+    const [formData, setFormData] = useState({title: ""});
 
     const [isSmallScreen, setIsSmallScreen] = useState(false);
 
@@ -39,12 +34,12 @@ function App() {
 
   return (
     <div className="App">
-        <div className="container">
+        <div className="menu">
             <SearchForm setMovieData={setMovieData}
                         formData={formData}
-                        setFormData={setFormData} isSmallScreen={isSmallScreen}/>
+                        setFormData={setFormData} isSmallScreen={isSmallScreen} movieData={movieData}/>
         </div>
-        <div className="container">
+        <div className="movies">
             <MoviesList movieData={movieData} setMovieData={setMovieData}/>
             <Pagination movieData={movieData} setMovieData={setMovieData} formData={formData} isSmallScreen={isSmallScreen}/>
         </div>

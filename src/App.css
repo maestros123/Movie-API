@@ -10,14 +10,26 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  background-color: #fafafc;
+  width: 100%;
 
 }
-.container {
-  width: 100%;
+.menu {
+  width: 28%;
+  background-color: #fff;
+  margin: 1%;
+  box-sizing: border-box;
+  border: 1px solid #f3f4f5;
+  border-radius: 8px;
+}
+.movies {
+  width: 70%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -50,5 +62,16 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+@media (max-width: 768px) {
+  .menu {
+    width: 100%;
+    margin: 0;
+    border: 0;
+  }
+  .movies {
+    width: 100%;
+    padding-top: 20px;
   }
 }
